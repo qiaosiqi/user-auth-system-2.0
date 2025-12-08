@@ -1,0 +1,116 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.1.1">
+  <diagram name="第 1 页" id="Jc5XKQ-5ba89PYLgs40M">
+    <mxGraphModel dx="1078" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eHirHbhxmerRNvdbdAcR-1" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="为角色分配权限活动图" vertex="1">
+          <mxGeometry height="720" width="800" x="4.547473508864641e-13" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-2" parent="eHirHbhxmerRNvdbdAcR-1" style="swimlane;startSize=20;html=1;" value="超级管理员" vertex="1">
+          <mxGeometry height="700" width="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-7" edge="1" parent="eHirHbhxmerRNvdbdAcR-2" source="eHirHbhxmerRNvdbdAcR-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="eHirHbhxmerRNvdbdAcR-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-5" parent="eHirHbhxmerRNvdbdAcR-2" style="ellipse;fillColor=strokeColor;html=1;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="184.99999999999955" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-9" edge="1" parent="eHirHbhxmerRNvdbdAcR-2" source="eHirHbhxmerRNvdbdAcR-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-6" parent="eHirHbhxmerRNvdbdAcR-2" style="rounded=1;whiteSpace=wrap;html=1;" value="管理员选择目标角色" vertex="1">
+          <mxGeometry height="60" width="120" x="139.99999999999955" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-8" parent="eHirHbhxmerRNvdbdAcR-2" style="rounded=1;whiteSpace=wrap;html=1;" value="管理员点击分配权限按钮" vertex="1">
+          <mxGeometry height="60" width="120" x="139.99999999999955" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-17" edge="1" parent="eHirHbhxmerRNvdbdAcR-2" source="eHirHbhxmerRNvdbdAcR-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-14" parent="eHirHbhxmerRNvdbdAcR-2" style="rounded=1;whiteSpace=wrap;html=1;" value="通过勾选和取消勾选调整角色权限集合" vertex="1">
+          <mxGeometry height="60" width="120" x="139.99999999999955" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-16" parent="eHirHbhxmerRNvdbdAcR-2" style="rounded=1;whiteSpace=wrap;html=1;" value="点击保存按钮" vertex="1">
+          <mxGeometry height="60" width="120" x="139.99999999999955" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-3" parent="eHirHbhxmerRNvdbdAcR-1" style="swimlane;startSize=20;html=1;" value="系统" vertex="1">
+          <mxGeometry height="700" width="400" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-13" edge="1" parent="eHirHbhxmerRNvdbdAcR-3" source="eHirHbhxmerRNvdbdAcR-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-10" parent="eHirHbhxmerRNvdbdAcR-3" style="rounded=1;whiteSpace=wrap;html=1;" value="加载权限树形控件" vertex="1">
+          <mxGeometry height="60" width="120" x="139.99999999999955" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-12" parent="eHirHbhxmerRNvdbdAcR-3" style="rounded=1;whiteSpace=wrap;html=1;" value="通过角色-权限表查询该角色当前权限，并自动勾选树节点" vertex="1">
+          <mxGeometry height="60" width="120" x="139.99999999999955" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-21" edge="1" parent="eHirHbhxmerRNvdbdAcR-3" source="eHirHbhxmerRNvdbdAcR-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-18" parent="eHirHbhxmerRNvdbdAcR-3" style="rounded=1;whiteSpace=wrap;html=1;" value="清空角色-权限关联表中该角色的所有现有记录" vertex="1">
+          <mxGeometry height="60" width="120" x="139.99999999999955" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-23" edge="1" parent="eHirHbhxmerRNvdbdAcR-3" source="eHirHbhxmerRNvdbdAcR-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-19" parent="eHirHbhxmerRNvdbdAcR-3" style="rounded=1;whiteSpace=wrap;html=1;" value="将新勾选的权限点与角色ID关联，批量插入角色-权限关联表" vertex="1">
+          <mxGeometry height="60" width="120" x="139.99999999999955" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-25" edge="1" parent="eHirHbhxmerRNvdbdAcR-3" source="eHirHbhxmerRNvdbdAcR-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-28" connectable="0" parent="eHirHbhxmerRNvdbdAcR-25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="数据操作成功" vertex="1">
+          <mxGeometry relative="1" x="-0.3215" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-30" edge="1" parent="eHirHbhxmerRNvdbdAcR-3" source="eHirHbhxmerRNvdbdAcR-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-31" connectable="0" parent="eHirHbhxmerRNvdbdAcR-30" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="数据操作失败" vertex="1">
+          <mxGeometry relative="1" x="-0.3452" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-22" parent="eHirHbhxmerRNvdbdAcR-3" style="rhombus;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="184.99999999999955" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-27" edge="1" parent="eHirHbhxmerRNvdbdAcR-3" source="eHirHbhxmerRNvdbdAcR-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-24" parent="eHirHbhxmerRNvdbdAcR-3" style="rounded=1;whiteSpace=wrap;html=1;" value="提示保存成功" vertex="1">
+          <mxGeometry height="60" width="120" x="39.999999999999545" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-26" parent="eHirHbhxmerRNvdbdAcR-3" style="ellipse;html=1;shape=endState;fillColor=strokeColor;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="84.99999999999955" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-33" edge="1" parent="eHirHbhxmerRNvdbdAcR-3" source="eHirHbhxmerRNvdbdAcR-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-29" parent="eHirHbhxmerRNvdbdAcR-3" style="rounded=1;whiteSpace=wrap;html=1;" value="回滚数据库操作" vertex="1">
+          <mxGeometry height="60" width="120" x="239.99999999999955" y="535" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-35" edge="1" parent="eHirHbhxmerRNvdbdAcR-3" source="eHirHbhxmerRNvdbdAcR-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-32" parent="eHirHbhxmerRNvdbdAcR-3" style="rounded=1;whiteSpace=wrap;html=1;" value="提示权限分配失败" vertex="1">
+          <mxGeometry height="60" width="120" x="239.99999999999955" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-34" parent="eHirHbhxmerRNvdbdAcR-3" style="shape=sumEllipse;perimeter=ellipsePerimeter;html=1;backgroundOutline=1;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="179.99999999999955" y="645" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-11" edge="1" parent="eHirHbhxmerRNvdbdAcR-1" source="eHirHbhxmerRNvdbdAcR-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-15" edge="1" parent="eHirHbhxmerRNvdbdAcR-1" source="eHirHbhxmerRNvdbdAcR-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHirHbhxmerRNvdbdAcR-20" edge="1" parent="eHirHbhxmerRNvdbdAcR-1" source="eHirHbhxmerRNvdbdAcR-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="eHirHbhxmerRNvdbdAcR-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

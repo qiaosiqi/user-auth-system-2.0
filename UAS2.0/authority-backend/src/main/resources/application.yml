@@ -1,0 +1,18 @@
+server:
+  port: 8080 # 后端运行端口
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 下面的 authority_sys 是我们刚才建立的数据库名
+    url: jdbc:mysql://localhost:3306/authority_sys?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: auth_dev     # 你的数据库账号
+    password: '000000' # 【重要】请在这里填入你本地 MySQL 的密码
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启 SQL 日志打印，方便调试，控制台会显示 SQL 语句
+  global-config:
+    db-config:
+      logic-delete-field: deleted # 逻辑删除字段（预留）

@@ -1,0 +1,116 @@
+### 1A. 测试用户登录接口 (POST /api/user/login) 超级管理员
+
+# 注意：你需要先运行你的 Spring Boot 应用 (点击 BackendApplication.java 上的绿色播放按钮)
+# 确保后端服务在 http://localhost:8080 端口上运行。
+
+POST http://localhost:8080/api/user/login
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=123456
+
+
+### 1B. 测试用户登录接口 (POST /api/user/login) 普通用户
+POST http://localhost:8080/api/user/login
+Content-Type: application/x-www-form-urlencoded
+
+username=normal&password=123456
+
+### 2A. 第一次测试：无 Token 访问 (预期失败 401)
+
+GET http://localhost:8080/api/user/testAuth
+
+### 2B. 第二次测试：携带 Token 访问 (预期成功 200)
+
+GET http://localhost:8080/api/user/testAuth
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDQ4ODksInVzZXJJZCI6MSwiaWF0IjoxNzY1MjAwMDg5LCJ1c2VybmFtZSI6ImFkbWluIn0.YoDwtO7TAe15bKRk6dMXn1E5q2JvX9c25uN6aS7meCA
+
+### 1. 查询角色列表 (GET /api/role/list) - 预期返回 1 条数据
+GET http://localhost:8080/api/role/list
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDU0MDcsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjAwNjA3LCJ1c2VybmFtZSI6ImFkbWluIn0.2tLXRSbbZCZfyYATd-vSG-hynI0KeBqCOfp6-4UMhzk
+
+### 2. 新增角色 (POST /api/role/save) - 预期新增 ID=2 的角色
+POST http://localhost:8080/api/role/save
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDU0MDcsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjAwNjA3LCJ1c2VybmFtZSI6ImFkbWluIn0.2tLXRSbbZCZfyYATd-vSG-hynI0KeBqCOfp6-4UMhzk
+
+{
+  "roleName": "普通用户",
+  "description": "默认用户权限"
+}
+
+### 1. 新增功能菜单 (POST /api/function/save) - 新增父菜单
+POST http://localhost:8080/api/function/save
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDU5NjYsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjAxMTY2LCJ1c2VybmFtZSI6ImFkbWluIn0.YQhDc9GiQQRPf0INct6RG3OQdDtQdqflHAJdHDnu-To
+
+{
+  "parentId": 0,
+  "functionName": "系统管理",
+  "functionCode": "sys",
+  "url": "/system",
+  "type": 1,
+  "sort": 10
+}
+
+### 2. 查询功能列表 (GET /api/function/list) - 预期返回 1 条数据
+GET http://localhost:8080/api/function/list
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDU5NjYsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjAxMTY2LCJ1c2VybmFtZSI6ImFkbWluIn0.YQhDc9GiQQRPf0INct6RG3OQdDtQdqflHAJdHDnu-To
+
+### 1. 查询角色的初始权限（GET）
+GET http://localhost:8080/api/role/getFunctionsByRole/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDU5NjYsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjAxMTY2LCJ1c2VybmFtZSI6ImFkbWluIn0.YQhDc9GiQQRPf0INct6RG3OQdDtQdqflHAJdHDnu-To
+
+### 2. 分配权限（POST）
+POST http://localhost:8080/api/role/assignFunction
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDU5NjYsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjAxMTY2LCJ1c2VybmFtZSI6ImFkbWluIn0.YQhDc9GiQQRPf0INct6RG3OQdDtQdqflHAJdHDnu-To
+{
+  "roleId": 1,
+  "functionIds": [1, 2, 3]
+}
+
+### 3. 验证分配结果（GET）
+GET http://localhost:8080/api/role/getFunctionsByRole/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDU5NjYsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjAxMTY2LCJ1c2VybmFtZSI6ImFkbWluIn0.YQhDc9GiQQRPf0INct6RG3OQdDtQdqflHAJdHDnu-To
+
+### 4. 更新权限（清空） 测试 assignFunctions 方法的原子性：我们尝试将权限清空。
+POST http://localhost:8080/api/role/assignFunction
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDU5NjYsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjAxMTY2LCJ1c2VybmFtZSI6ImFkbWluIn0.YQhDc9GiQQRPf0INct6RG3OQdDtQdqflHAJdHDnu-To
+{
+  "roleId": 1,
+  "functionIds": []
+}
+
+### A. 新增权限功能码: sys:role:delete
+POST http://localhost:8080/api/function/save
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDkyOTgsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjA0NDk4LCJ1c2VybmFtZSI6ImFkbWluIn0.U8sox5vjsdg9q_07VjlTv4minaFdrvWVdIjzm8MeoeE
+
+{
+  "parentId": 1,
+  "functionName": "删除角色",
+  "functionCode": "sys:role:delete",
+  "url": "/role/delete",
+  "type": 2,
+  "sort": 99
+}
+
+### B. 分配权限 (将ID 4 分配给 Role 1)
+POST http://localhost:8080/api/role/assignFunction
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDkyOTgsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjA0NDk4LCJ1c2VybmFtZSI6ImFkbWluIn0.U8sox5vjsdg9q_07VjlTv4minaFdrvWVdIjzm8MeoeE
+
+{
+  "roleId": 1,
+  "functionIds": [4]
+}
+
+### C-1. 测试拦截 - 使用管理员 Token (预期 200 OK)
+DELETE http://localhost:8080/api/role/delete/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDkyOTgsInVzZXJJZCI6MSwiaWF0IjoxNzY1MjA0NDk4LCJ1c2VybmFtZSI6ImFkbWluIn0.U8sox5vjsdg9q_07VjlTv4minaFdrvWVdIjzm8MeoeE
+
+### C-2. 测试拦截 - 使用普通用户 Token (预期 403 Forbidden)
+DELETE http://localhost:8080/api/role/delete/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjU4MDkyNTUsInVzZXJJZCI6MiwiaWF0IjoxNzY1MjA0NDU1LCJ1c2VybmFtZSI6Im5vcm1hbCJ9.BHon60zSIwWC3aLYdCqREbfoawYKwHStG9eGIqH3DrE
+

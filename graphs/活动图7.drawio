@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.1.1">
+  <diagram id="AWx6ApUjtXET-2T7dTVL" name="第 1 页">
+    <mxGraphModel dx="1608" dy="746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OwEpH6Tegg5bU055ylLt-1" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="查询菜单树活动图" vertex="1">
+          <mxGeometry height="620" width="720" x="4.547473508864641e-13" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-2" parent="OwEpH6Tegg5bU055ylLt-1" style="swimlane;startSize=20;html=1;" value="用户" vertex="1">
+          <mxGeometry height="600" width="240" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-7" edge="1" parent="OwEpH6Tegg5bU055ylLt-2" source="OwEpH6Tegg5bU055ylLt-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-5" parent="OwEpH6Tegg5bU055ylLt-2" style="ellipse;fillColor=strokeColor;html=1;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="104.99999999999955" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-6" parent="OwEpH6Tegg5bU055ylLt-2" style="rounded=1;whiteSpace=wrap;html=1;" value="用户登录成功" vertex="1">
+          <mxGeometry height="60" width="120" x="59.999999999999545" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-3" parent="OwEpH6Tegg5bU055ylLt-1" style="swimlane;startSize=20;html=1;" value="前端应用" vertex="1">
+          <mxGeometry height="600" width="240" x="240" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-8" parent="OwEpH6Tegg5bU055ylLt-3" style="rounded=1;whiteSpace=wrap;html=1;" value="发送查询菜单树请求，携带当前用户ID" vertex="1">
+          <mxGeometry height="60" width="120" x="59.999999999999545" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-25" edge="1" parent="OwEpH6Tegg5bU055ylLt-3" source="OwEpH6Tegg5bU055ylLt-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-22" parent="OwEpH6Tegg5bU055ylLt-3" style="rounded=1;whiteSpace=wrap;html=1;" value="根据返回数据，渲染生成左侧导航栏或主导航菜单" vertex="1">
+          <mxGeometry height="60" width="120" x="59.999999999999545" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-24" parent="OwEpH6Tegg5bU055ylLt-3" style="ellipse;html=1;shape=endState;fillColor=strokeColor;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="104.99999999999955" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-4" parent="OwEpH6Tegg5bU055ylLt-1" style="swimlane;startSize=20;html=1;" value="后端系统" vertex="1">
+          <mxGeometry height="600" width="240" x="480" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-13" edge="1" parent="OwEpH6Tegg5bU055ylLt-4" source="OwEpH6Tegg5bU055ylLt-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-10" parent="OwEpH6Tegg5bU055ylLt-4" style="rounded=1;whiteSpace=wrap;html=1;" value="接收查询请求" vertex="1">
+          <mxGeometry height="60" width="120" x="59.999999999999545" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-15" edge="1" parent="OwEpH6Tegg5bU055ylLt-4" source="OwEpH6Tegg5bU055ylLt-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-12" parent="OwEpH6Tegg5bU055ylLt-4" style="rounded=1;whiteSpace=wrap;html=1;" value="从菜单表查询所有有效菜单项，构建完整的树形结构" vertex="1">
+          <mxGeometry height="60" width="120" x="59.999999999999545" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-17" edge="1" parent="OwEpH6Tegg5bU055ylLt-4" source="OwEpH6Tegg5bU055ylLt-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-14" parent="OwEpH6Tegg5bU055ylLt-4" style="rounded=1;whiteSpace=wrap;html=1;" value="根据用户ID，关联查询用户拥有的所有菜单权限标识符" vertex="1">
+          <mxGeometry height="60" width="120" x="59.999999999999545" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-19" edge="1" parent="OwEpH6Tegg5bU055ylLt-4" source="OwEpH6Tegg5bU055ylLt-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-16" parent="OwEpH6Tegg5bU055ylLt-4" style="rounded=1;whiteSpace=wrap;html=1;" value="遍历菜单树，过滤掉 is_global_visible为 false的节点" vertex="1">
+          <mxGeometry height="60" width="120" x="59.999999999999545" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-21" edge="1" parent="OwEpH6Tegg5bU055ylLt-4" source="OwEpH6Tegg5bU055ylLt-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-18" parent="OwEpH6Tegg5bU055ylLt-4" style="rounded=1;whiteSpace=wrap;html=1;" value="在全局过滤基础上，仅保留用户有权限的菜单节点" vertex="1">
+          <mxGeometry height="60" width="120" x="59.999999999999545" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-20" parent="OwEpH6Tegg5bU055ylLt-4" style="rounded=1;whiteSpace=wrap;html=1;" value="将过滤后的最终菜单树数据返回给前端" vertex="1">
+          <mxGeometry height="60" width="120" x="59.999999999999545" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-9" edge="1" parent="OwEpH6Tegg5bU055ylLt-1" source="OwEpH6Tegg5bU055ylLt-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-11" edge="1" parent="OwEpH6Tegg5bU055ylLt-1" source="OwEpH6Tegg5bU055ylLt-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OwEpH6Tegg5bU055ylLt-23" edge="1" parent="OwEpH6Tegg5bU055ylLt-1" source="OwEpH6Tegg5bU055ylLt-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="OwEpH6Tegg5bU055ylLt-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

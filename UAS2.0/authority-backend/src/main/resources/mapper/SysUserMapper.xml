@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.authority.backend.mapper.SysUserMapper">
+
+    <select id="selectPermissionsByUserId" resultType="java.lang.String">
+        SELECT DISTINCT
+            sf.function_code
+        FROM
+            sys_user su
+                JOIN
+            sys_role_function srf ON su.role_id = srf.role_id
+                JOIN
+            sys_function sf ON srf.function_id = sf.id
+        WHERE
+            su.id = #{userId}
+          AND sf.function_code IS NOT NULL
+          AND sf.function_code != ''
+    </select>
+
+</mapper>

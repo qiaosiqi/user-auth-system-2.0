@@ -1,0 +1,129 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.1.1">
+  <diagram name="第 1 页" id="F0ydSRB3gT6KPtez7ncl">
+    <mxGraphModel dx="2485" dy="1153" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="User" vertex="1">
+          <mxGeometry height="902" width="150" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="LoginView" vertex="1">
+          <mxGeometry height="902" width="150" x="298" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="LoginController" vertex="1">
+          <mxGeometry height="902" width="150" x="627" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="AuthService" vertex="1">
+          <mxGeometry height="902" width="150" x="957" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="UserRepository" vertex="1">
+          <mxGeometry height="902" width="150" x="1237" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="UserRoleRepository" vertex="1">
+          <mxGeometry height="902" width="168" x="1437" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-7" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="RolePermissionRepository" vertex="1">
+          <mxGeometry height="902" width="217" x="1655" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-8" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="Session" vertex="1">
+          <mxGeometry height="902" width="150" x="1922" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-9" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="LogService" vertex="1">
+          <mxGeometry height="902" width="150" x="2122" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-10" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-2" value="输入用户名、密码并点击登录">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="243" y="127" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-11" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-3" value="submitLogin(username, password)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="546" y="183" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-12" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-4" value="authenticate(username, password)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="876" y="239" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-13" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-5" value="findByUsername(username)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1181" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-14" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-4" value="返回 User 对象">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1184" y="351" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-15" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-4" style="curved=1;endArrow=block;rounded=0;" target="EnR1DwRBbnvLl4HVUMlX-4" value="校验密码">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1083" y="403" />
+              <mxPoint x="1083" y="433" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-16" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-6" value="findRolesByUserId(userId)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1285" y="489" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-17" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-6" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-4" value="返回角色列表">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1288" y="541" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-18" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-7" value="findPermissionsByRoleIds(roleIds)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1406" y="597" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-19" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-7" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-4" value="返回权限集合">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1409" y="649" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-20" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-8" value="创建 Session(user, permissions)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1523" y="705" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-21" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-9" value="recordLoginLog(user, success=true)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1623" y="761" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnR1DwRBbnvLl4HVUMlX-22" edge="1" parent="1" source="EnR1DwRBbnvLl4HVUMlX-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="EnR1DwRBbnvLl4HVUMlX-2" value="loginSuccess()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="549" y="817" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

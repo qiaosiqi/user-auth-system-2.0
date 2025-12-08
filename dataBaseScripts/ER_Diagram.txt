@@ -1,0 +1,56 @@
+erDiagram
+    USER {
+        bigint user_id PK "主键"
+        varchar username UK "用户名"
+        varchar password "用户密码（明文）"
+        varchar phone "用户手机号"
+        tinyint status "用户激活状态"
+        datetime created_at "用户创建时间"
+    }
+
+    ROLE {
+        bigint role_id PK "主键"
+        varchar name "角色名"
+        text description "角色描述"
+        tinyint status "角色激活状态"
+    }
+
+    PERMISSION {
+        bigint permission_id PK "主键"
+        varchar permission_type "权限类型"
+        varchar name "权限名称"
+    }
+
+    MENU {
+        bigint menu_id PK "主键"
+        varchar title "菜单名"
+        varchar path "路由路径"
+        bigint parent_id FK "父菜单ID"
+        int order_num "排序号"
+        varchar icon "图标"
+    }
+
+    USER ||--o{ USER_ROLE : ""
+    ROLE ||--o{ ROLE_PERMISSION : ""
+    PERMISSION ||--o{ ROLE_PERMISSION : ""
+    ROLE ||--o{ ROLE_MENU : ""
+    MENU ||--o{ ROLE_MENU : ""
+
+    USER_ROLE {
+        bigint id PK
+        bigint user_id FK
+        bigint role_id FK
+        datetime assigned_at
+    }
+
+    ROLE_PERMISSION {
+        bigint id PK
+        bigint role_id FK
+        bigint permission_id FK
+    }
+
+    ROLE_MENU {
+        bigint id PK
+        bigint role_id FK
+        bigint menu_id FK
+    }
