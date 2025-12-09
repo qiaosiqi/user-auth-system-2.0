@@ -4,11 +4,7 @@ import com.authority.backend.entity.SysUser;
 import com.authority.backend.service.SysUserService;
 import com.authority.backend.utils.JwtUtil; // 【新增导入】
 import jakarta.servlet.http.HttpServletRequest; // 【新增或替换】这个导入语句
-import org.springframework.web.bind.annotation.GetMapping; // 注意：你新增 testAuth 接口可能需要这个导入
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.HashMap;
@@ -62,6 +58,86 @@ public class SysUserController {
         return result;
     }
 
+
+    /**
+     * 用户列表接口：/api/user/list
+     * GET 请求，支持分页和用户名查询
+     */
+    @GetMapping("/list")
+    public Map<String, Object> list(
+            // 🚨 接收前端传递的分页和查询参数
+            @RequestParam(defaultValue = "1") Integer pageNum,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(required = false) String username) {
+
+        // 假设 SysUserService 提供了 findPage 方法来处理业务逻辑
+        // 并返回一个 Map，其中包含 "list" (数据列表) 和 "total" (总数)
+        Map<String, Object> pageData = sysUserService.findPage(pageNum, pageSize, username);
+
+        Map<String, Object> result = new HashMap<>();
+
+        result.put("code", 200);
+        result.put("msg", "查询成功");
+
+        // 🚨 返回给前端的数据结构必须包含 list 和 total
+        result.put("data", pageData);
+
+        // 如果你的 findPage 方法返回的 Map 中就是 list 和 total，则直接返回：
+        // return pageData;
+
+        return result;
+    }
+
+
+    /**
+     * 删除用户接口：/api/user/delete/{userId}
+     * DELETE 请求
+     */
+    @DeleteMapping("/delete/{userId}")
+    public Map<String, Object> delete(@PathVariable Long userId) {
+
+        // 1. 调用 Service 层进行删除操作
+        boolean success = sysUserService.removeById(userId); // Mybatis-Plus 内置的删除方法
+
+        Map<String, Object> result = new HashMap<>();
+
+        if (success) {
+            result.put("code", 200);
+            result.put("msg", "删除成功");
+        } else {
+            // 删除失败，可能是用户不存在
+            result.put("code", 500);
+            result.put("msg", "删除失败，用户可能不存在");
+        }
+        return result;
+    }
+
+    /**
+     * 新增或编辑用户接口：/api/user/saveOrUpdate
+     * POST 请求
+     * 接收一个 SysUser 实体作为请求体
+     */
+    @PostMapping("/saveOrUpdate")
+    public Map<String, Object> saveOrUpdate(@RequestBody SysUser sysUser) {
+
+        // **MyBatis-Plus 核心功能:**
+        // 1. 如果 sysUser.getId() 不为空，MyBatis-Plus 会自动执行更新 (UPDATE) 操作。
+        // 2. 如果 sysUser.getId() 为空，MyBatis-Plus 会自动执行插入 (INSERT) 操作。
+        boolean success = sysUserService.saveOrUpdate(sysUser);
+
+        Map<String, Object> result = new HashMap<>();
+
+        if (success) {
+            result.put("code", 200);
+            // 根据是否有ID来判断是新增还是更新，返回更准确的消息
+            result.put("msg", (sysUser.getId() != null ? "更新" : "新增") + "用户成功");
+        } else {
+            result.put("code", 500);
+            result.put("msg", (sysUser.getId() != null ? "更新" : "新增") + "用户失败");
+        }
+        return result;
+    }
+
     /**
      * 测试接口：需要 Token 才能访问
      */
@@ -86,4 +162,37 @@ public class SysUserController {
         result.put("currentUserId", userId);
         return result;
     }
+
+    /**
+     * 为用户分配角色
+     * POST /api/user/assignRole
+     * 请求体格式：{"userId": 1, "roleId": 2}
+     */
+    @PostMapping("/assignRole")
+    public Map<String, Object> assignRole(@RequestBody Map<String, Object> params) {
+        Map<String, Object> result = new HashMap<>();
+
+        try {
+            // 从 Map 中获取 Long 类型的 userId 和 roleId
+            Long userId = ((Number) params.get("userId")).longValue();
+            Long roleId = ((Number) params.get("roleId")).longValue();
+
+            // 调用 Service 层处理分配逻辑
+            boolean success = sysUserService.assignRole(userId, roleId);
+
+            if (success) {
+                result.put("code", 200);
+                result.put("msg", "角色分配成功");
+            } else {
+                result.put("code", 500);
+                result.put("msg", "角色分配失败");
+            }
+        } catch (Exception e) {
+            // 捕获异常，比如参数转换失败
+            result.put("code", 500);
+            result.put("msg", "参数错误或处理失败: " + e.getMessage());
+        }
+        return result;
+    }
+
 }

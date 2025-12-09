@@ -4,6 +4,7 @@ import com.authority.backend.entity.SysUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户业务逻辑接口
@@ -19,10 +20,23 @@ public interface SysUserService extends IService<SysUser> {
      */
     SysUser login(String username, String password);
 
+
+    public Map<String, Object> findPage(Integer pageNum, Integer pageSize, String username);
+
+
     /**
      * 根据用户ID查询其拥有的所有权限代码 (functionCode)
      * @param userId 用户ID
      * @return 权限代码列表，例如 ["sys:user:add", "sys:role:view"]
      */
     List<String> getPermissionsByUserId(Long userId);
+
+    /**
+     * 为用户分配单个角色
+     * @param userId 用户ID
+     * @param roleId 角色ID
+     * @return 成功或失败
+     */
+    boolean assignRole(Long userId, Long roleId); // 🚨 新增方法声明
+
 }

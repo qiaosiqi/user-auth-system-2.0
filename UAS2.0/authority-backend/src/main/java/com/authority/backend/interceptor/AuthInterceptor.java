@@ -7,6 +7,8 @@ import io.jsonwebtoken.Claims;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import org.springframework.http.HttpMethod; // 🚨 新增导入
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -28,6 +30,11 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+
+        // 🚨 核心修正：如果是 OPTIONS 请求，直接放行
+        if (HttpMethod.OPTIONS.matches(request.getMethod())) {
+            return true;
+        }
 
         // 1. 从请求头获取 Token
         String token = request.getHeader("Authorization");
