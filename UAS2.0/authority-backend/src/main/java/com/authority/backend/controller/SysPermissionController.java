@@ -3,9 +3,7 @@ package com.authority.backend.controller;
 import com.authority.backend.entity.SysPermission;
 import com.authority.backend.service.SysPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -36,4 +34,52 @@ public class SysPermissionController {
         result.put("data", permissionList);
         return result;
     }
+
+    /**
+     * 新增或编辑权限节点
+     * POST /api/permission/saveOrUpdate
+     */
+    @PostMapping("/saveOrUpdate")
+    public Map<String, Object> saveOrUpdate(@RequestBody SysPermission sysPermission) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            boolean success = sysPermissionService.saveOrUpdate(sysPermission);
+            if (success) {
+                result.put("code", 200);
+                result.put("msg", "权限保存成功");
+            } else {
+                result.put("code", 500);
+                result.put("msg", "权限保存失败");
+            }
+        } catch (Exception e) {
+            result.put("code", 500);
+            result.put("msg", "保存失败：" + e.getMessage());
+        }
+        return result;
+    }
+
+    /**
+     * 递归删除权限及其子权限
+     * DELETE /api/permission/delete/{id}
+     */
+    @DeleteMapping("/delete/{id}")
+    public Map<String, Object> deletePermission(@PathVariable Long id) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            // 🚨 调用 Service 层实现的递归删除方法
+            boolean success = sysPermissionService.removePermissionAndChildren(id);
+            if (success) {
+                result.put("code", 200);
+                result.put("msg", "权限及其子权限删除成功");
+            } else {
+                result.put("code", 500);
+                result.put("msg", "权限删除失败");
+            }
+        } catch (Exception e) {
+            result.put("code", 500);
+            result.put("msg", "删除失败：" + e.getMessage());
+        }
+        return result;
+    }
+
 }

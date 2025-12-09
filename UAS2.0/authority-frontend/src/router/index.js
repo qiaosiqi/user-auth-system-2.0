@@ -32,7 +32,14 @@ const routes = [
                 component: () => import('../views/RoleManagement.vue'),
                 meta: { title: '角色管理' }
             },
-            // ... 其他子路由
+            // 🚨 新增：权限/菜单管理路由
+            {
+                path: 'permission', // 完整的路径是 /permission
+                name: 'PermissionManagement',
+                component: () => import('../views/PermissionManagement.vue'), // 🚨 确保路径正确
+                meta: { title: '权限管理' }
+            },
+            // ...
 
         ]
     }

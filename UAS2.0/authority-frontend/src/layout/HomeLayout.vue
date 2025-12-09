@@ -12,7 +12,7 @@ const isCollapse = ref(false) // 侧边栏是否折叠
 const menuItems = reactive([
   { path: '/user', name: '用户管理', icon: 'UserFilled' },
   { path: '/role', name: '角色管理', icon: 'Avatar' },
-  { path: '/function', name: '功能菜单', icon: 'Operation' }
+  { path: '/permission', name: '权限管理', icon: 'Operation' }
 ])
 
 // 登出操作

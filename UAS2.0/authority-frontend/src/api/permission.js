@@ -34,3 +34,27 @@ export function assignRolePermissions(data) {
         data: data
     })
 }
+
+
+/**
+ * 新增或编辑权限节点
+ * POST /api/permission/saveOrUpdate
+ */
+export function saveOrUpdatePermission(data) {
+    return request({
+        url: '/api/permission/saveOrUpdate',
+        method: 'post',
+        data: data
+    })
+}
+
+/**
+ * 删除权限及其子权限
+ * DELETE /api/permission/delete/{id}
+ */
+export function deletePermission(permissionId) {
+    return request({
+        url: `/api/permission/delete/${permissionId}`,
+        method: 'delete'
+    })
+}
