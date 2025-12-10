@@ -17,4 +17,23 @@
           AND sf.function_code != ''
     </select>
 
+    <select id="selectUserPage" resultType="java.util.Map">
+        SELECT
+        u.id,
+        u.username,
+        u.created_time,  r.role_name AS roleName,  u.role_id,
+        u.status
+        FROM
+        sys_user u
+        LEFT JOIN
+        sys_role r ON u.role_id = r.id
+        <where>
+            <if test="username != null and username != ''">
+                u.username LIKE CONCAT('%', #{username}, '%')
+            </if>
+        </where>
+        ORDER BY
+        u.id DESC
+    </select>
+
 </mapper>

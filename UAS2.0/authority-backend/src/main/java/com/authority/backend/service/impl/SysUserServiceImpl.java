@@ -70,32 +70,24 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      * 实现 SysUserService 接口中的 findPage 抽象方法
      * 用于用户列表的分页查询
      */
+    /**
+     * 实现 SysUserService 接口中的 findPage 抽象方法
+     * 用于用户列表的分页查询 (🚨 修改此方法，使用联表查询)
+     */
     @Override
     public Map<String, Object> findPage(Integer pageNum, Integer pageSize, String username) {
 
-        // 1. 创建分页对象
-        // Mybatis-Plus 的 Page 对象，用于传递分页参数和接收结果
-        Page<SysUser> page = new Page<>(pageNum, pageSize);
+        // 1. 创建分页对象 (注意：这里的泛型从 SysUser 变为了 Map)
+        Page<Map<String, Object>> page = new Page<>(pageNum, pageSize);
 
-        // 2. 构建查询条件
-        QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
+        // 2. 🚨 调用自定义的联表查询 Mapper 方法
+        // 这里不再需要手动构建 QueryWrapper，查询条件在 XML 中处理
+        Page<Map<String, Object>> userPage = sysUserMapper.selectUserPage(page, username);
 
-        // 如果用户名不为空，添加模糊查询条件
-        if (StringUtils.isNotBlank(username)) {
-            queryWrapper.like("username", username);
-        }
-
-        // 【注意】这里可以添加排序：例如按 ID 降序
-        queryWrapper.orderByDesc("id");
-
-        // 3. 执行分页查询
-        // BaseMapper 的 selectPage 方法会根据 page 对象自动执行分页
-        Page<SysUser> userPage = sysUserMapper.selectPage(page, queryWrapper);
-
-        // 4. 封装结果
+        // 3. 封装结果
         Map<String, Object> result = new HashMap<>();
 
-        // 将查询到的用户列表放入 map
+        // 🚨 返回的是 Map 列表，其中包含了 roleName 字段
         result.put("list", userPage.getRecords());
 
         // 将总记录数放入 map
@@ -104,29 +96,45 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         return result;
     }
 
-    /**
-     * 实现用户分配角色的业务逻辑
-     * 1. 删除用户原有的角色
-     * 2. 插入用户新的角色
-     */
     @Override
-    @Transactional // 🚨 保证删除和插入操作的原子性
+    @Transactional
     public boolean assignRole(Long userId, Long roleId) {
         if (userId == null || roleId == null) {
             return false;
         }
 
-        // 1. 删除用户原有的角色关联记录
+        // **1. 删除用户原有的角色关联记录**
         QueryWrapper<SysUserRole> wrapper = new QueryWrapper<>();
         wrapper.eq("user_id", userId);
+
+        // 🚨 修正点 A：删除操作。如果 sys_user_role 表没有主键，
+        // Mybatis-Plus 的 remove 方法可能依赖于实体自身的逻辑，我们确保删除是成功的。
+        // remove(wrapper) 返回 boolean，我们忽略它，继续执行插入。
+
         sysUserRoleService.remove(wrapper);
 
-        // 2. 插入用户新的角色关联记录
+        // **2. 插入用户新的角色关联记录**
+        // 🚨 修正点 B：如果 roleId 传入的是 '0' 或其他特殊值，表示取消分配角色。
+        if (roleId == 0L) { // 假设 0L 表示取消分配
+            return true; // 成功取消分配
+        }
+
         SysUserRole sysUserRole = new SysUserRole();
         sysUserRole.setUserId(userId);
         sysUserRole.setRoleId(roleId);
 
-        return sysUserRoleService.save(sysUserRole); // 🚨 保存新的关联记录
+        // 🚨 修正点 C：检查 save 操作是否成功。
+        boolean success = sysUserRoleService.save(sysUserRole);
+
+        // 🚨 【关键新增】更新 SysUser 主表的 roleId 冗余字段（如果你在列表查询时依赖它）
+        SysUser userUpdate = new SysUser();
+        userUpdate.setId(userId);
+        userUpdate.setRoleId(roleId);
+        // this.updateById 是继承自 ServiceImpl 的方法，用于更新 SysUser
+        boolean updateSuccess = this.updateById(userUpdate);
+
+        // 只有当两个操作都成功时才返回 true
+        return success && updateSuccess;
     }
 
 

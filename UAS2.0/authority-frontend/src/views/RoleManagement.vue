@@ -104,8 +104,7 @@ onMounted(() => {
       <el-table :data="tableData" v-loading="loading" border style="width: 100%; margin-top: 20px;">
         <el-table-column prop="id" label="ID" width="80" />
         <el-table-column prop="roleName" label="角色名称" />
-        <el-table-column prop="roleCode" label="角色标识" />
-        <el-table-column prop="createTime" label="创建时间" width="180" />
+        <el-table-column prop="description" label="描述" width="180" />
 
         <el-table-column label="操作" width="220">
           <template #default="{ row }">

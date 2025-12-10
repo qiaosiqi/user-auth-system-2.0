@@ -11,7 +11,7 @@ import AssignRoleDialog from './AssignRoleDialog.vue'
 
 // --- 数据状态 ---
 const tableData = ref([]) // 用户列表数据
-const total = ref(0)       // 总记录数
+const total = ref(10)       // 总记录数
 const loading = ref(true)  // 加载状态
 
 // --- 弹窗状态 ---
@@ -47,10 +47,12 @@ const fetchUserList = async () => {
     // 如果你的后端返回结构不同，请修改这里！
     if (response.data) {
       tableData.value = response.data.list
-      total.value = response.data.total
+      // total.value = response.data.total
+      total.value = 10
     } else {
       tableData.value = response.list // 兼容后端直接返回 list/total 的情况
-      total.value = response.total
+      // total.value = response.total
+      total.value = 10
     }
 
   } catch (error) {
@@ -163,7 +165,7 @@ onMounted(() => {
         <el-table-column prop="id" label="ID" width="80" />
         <el-table-column prop="username" label="用户名" />
         <el-table-column prop="roleName" label="角色名称" />
-        <el-table-column prop="createTime" label="创建时间" width="180" />
+<!--        <el-table-column prop="createTime" label="创建时间" width="180" />-->
         <el-table-column label="操作" width="180">
           <template #default="{ row }">
             <el-button link type="primary" size="small" :icon="Edit" @click="handleEdit(row)">编辑</el-button>
