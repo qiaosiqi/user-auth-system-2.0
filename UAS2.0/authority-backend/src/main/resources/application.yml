@@ -20,4 +20,4 @@ mybatis-plus:
 # -----------------------------------
 # 智能体配置 (DeepSeek)
 # -----------------------------------
-deepseek.api-key: sk-435c6f79b8cf4f29980a3c266d03977e # 🚨 注意这里的冒号和空格
+deepseek.api-key: ${DEEPSEEK_API_KEY:default_secret}
