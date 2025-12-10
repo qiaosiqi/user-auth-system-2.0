@@ -39,6 +39,14 @@ const routes = [
                 component: () => import('../views/PermissionManagement.vue'), // 🚨 确保路径正确
                 meta: { title: '权限管理' }
             },
+
+            // 🚨 新增：智能体问答路由
+            {
+                path: '/deepseek/chat',
+                name: 'DeepseekChat',
+                component: () => import('../views/deepseek/DeepseekChat.vue'),
+                meta: { title: '智能体问答' }
+            },
             // ...
 
         ]
