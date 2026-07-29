@@ -60,13 +60,7 @@ Thumbs.db
 *.temp
 .cache/
 
-# Package manager
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-
 # Maven
-.mvn/wrapper/maven-wrapper.jar
 
 # Gradle
 .gradle/
@@ -109,9 +103,6 @@ Desktop.ini
 .Trash-*
 .nfs*
 
-# Scripts
-*.sh
-*.bat
 !createAccount.sql
 !databaseInitialize.sql
 !MySQL_initiate.sql

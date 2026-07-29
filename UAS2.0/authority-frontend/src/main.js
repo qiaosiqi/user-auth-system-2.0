@@ -7,6 +7,7 @@ import { createPinia } from 'pinia'
 import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue' // 新增导入图标库
 import 'element-plus/dist/index.css'
+import './style.css'
 
 const app = createApp(App)
 

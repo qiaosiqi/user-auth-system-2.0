@@ -22,10 +22,11 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     // 注入 UserService 来获取用户权限
     private final SysUserService sysUserService;
+    private final JwtUtil jwtUtil;
 
-    // 构造函数注入 (需要修改 WebMvcConfig 来创建实例)
-    public AuthInterceptor(SysUserService sysUserService) {
+    public AuthInterceptor(SysUserService sysUserService, JwtUtil jwtUtil) {
         this.sysUserService = sysUserService;
+        this.jwtUtil = jwtUtil;
     }
 
     @Override
@@ -49,9 +50,9 @@ public class AuthInterceptor implements HandlerInterceptor {
         String jwt = token.substring(7);
 
         // 4. 校验 Token 有效性
-        Claims claims = JwtUtil.parseToken(jwt);
+        Claims claims = jwtUtil.parseToken(jwt);
 
-        if (claims == null || !JwtUtil.validateToken(jwt)) {
+        if (claims == null || !jwtUtil.validateToken(jwt)) {
             returnJson(response, 401, "Token 无效或已过期，请重新登录！");
             return false;
         }

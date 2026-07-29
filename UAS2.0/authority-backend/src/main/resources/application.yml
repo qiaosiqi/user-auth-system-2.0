@@ -1,13 +1,12 @@
 server:
-  port: 8080 # 后端运行端口
+  port: ${SERVER_PORT:8080}
 
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    # 下面的 authority_sys 是我们刚才建立的数据库名
-    url: jdbc:mysql://localhost:3306/authority_sys?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
-    username: auth_dev     # 你的数据库账号
-    password: '000000' # 【重要】请在这里填入你本地 MySQL 的密码
+    url: ${DB_URL:jdbc:mysql://localhost:3306/authority_sys?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai}
+    username: ${DB_USERNAME:auth_dev}
+    password: ${DB_PASSWORD:}
 
 # MyBatis-Plus 配置
 mybatis-plus:
@@ -17,7 +16,12 @@ mybatis-plus:
     db-config:
       logic-delete-field: deleted # 逻辑删除字段（预留）
 
-# -----------------------------------
-# 智能体配置 (DeepSeek)
-# -----------------------------------
-deepseek.api-key: ${DEEPSEEK_API_KEY:default_secret}
+security:
+  jwt:
+    secret: ${JWT_SECRET:}
+    expiration-ms: ${JWT_EXPIRATION_MS:604800000}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://127.0.0.1:5173}
+
+deepseek:
+  api-key: ${DEEPSEEK_API_KEY:}

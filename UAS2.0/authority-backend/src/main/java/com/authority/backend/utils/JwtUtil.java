@@ -3,6 +3,10 @@ package com.authority.backend.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import jakarta.annotation.PostConstruct;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,13 +14,22 @@ import java.util.Map;
 /**
  * JWT 工具类
  */
+@Component
 public class JwtUtil {
 
-    // 令牌秘钥（随便设置，但必须足够复杂且保密）
-    private static final String SECRET = "your_complex_secret_key_for_authority_system";
+    @Value("${security.jwt.secret:}")
+    private String secret;
 
-    // 令牌的有效时间（这里设置为 7 天）
-    private static final long EXPIRATION_TIME = 7 * 24 * 60 * 60 * 1000; // 毫秒
+    @Value("${security.jwt.expiration-ms:604800000}")
+    private long expirationTime;
+
+    @PostConstruct
+    void validateConfiguration() {
+        if (secret == null || secret.length() < 32) {
+            throw new IllegalStateException(
+                    "JWT_SECRET must contain at least 32 characters");
+        }
+    }
 
     /**
      * 1. 根据用户信息生成 Token
@@ -24,9 +37,9 @@ public class JwtUtil {
      * @param username 用户名
      * @return JWT Token 字符串
      */
-    public static String generateToken(Long userId, String username) {
+    public String generateToken(Long userId, String username) {
         Date now = new Date();
-        Date expirationDate = new Date(now.getTime() + EXPIRATION_TIME);
+        Date expirationDate = new Date(now.getTime() + expirationTime);
 
         Map<String, Object> claims = new HashMap<>();
         claims.put("userId", userId); // 将用户ID放入 Payload
@@ -36,7 +49,7 @@ public class JwtUtil {
                 .setClaims(claims)           // 设置自定义 Payload
                 .setIssuedAt(now)            // 签发时间
                 .setExpiration(expirationDate) // 过期时间
-                .signWith(SignatureAlgorithm.HS256, SECRET) // 签名算法和秘钥
+                .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
 
@@ -45,10 +58,10 @@ public class JwtUtil {
      * @param token JWT Token 字符串
      * @return Claims 对象 (包含 userId, username 等)
      */
-    public static Claims parseToken(String token) {
+    public Claims parseToken(String token) {
         try {
             return Jwts.parser()
-                    .setSigningKey(SECRET) // 使用相同的秘钥解析
+                    .setSigningKey(secret)
                     .parseClaimsJws(token)
                     .getBody();
         } catch (Exception e) {
@@ -62,7 +75,7 @@ public class JwtUtil {
      * @param token JWT Token 字符串
      * @return boolean
      */
-    public static boolean validateToken(String token) {
+    public boolean validateToken(String token) {
         Claims claims = parseToken(token);
         return claims != null && !claims.getExpiration().before(new Date());
     }

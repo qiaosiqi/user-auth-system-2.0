@@ -5,8 +5,8 @@ import { ElMessage } from 'element-plus'
 
 // 1. 创建 Axios 实例
 const service = axios.create({
-    baseURL: 'http://localhost:8080', // 后端服务的地址
-    timeout: 10000, // 请求超时时间
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080',
+    timeout: 10000,
     // 登录接口使用 form-urlencoded 格式，其他接口默认使用 JSON
     headers: {
         'Content-Type': 'application/json'
@@ -44,9 +44,7 @@ service.interceptors.response.use(
     },
     (error) => {
         const userStore = useUserStore()
-        const status = error.response.status
 
-        // 🚨 关键修复：检查 error.response 是否存在
         if (error.response) {
             const status = error.response.status
 

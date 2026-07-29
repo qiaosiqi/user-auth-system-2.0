@@ -2,11 +2,10 @@ package com.authority.backend.controller;
 
 import com.authority.backend.entity.SysUser;
 import com.authority.backend.service.SysUserService;
-import com.authority.backend.utils.JwtUtil; // 【新增导入】
+import com.authority.backend.utils.JwtUtil;
 import jakarta.servlet.http.HttpServletRequest; // 【新增或替换】这个导入语句
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,8 +17,13 @@ import java.util.Map;
 @RequestMapping("/api/user") // 设定基础路径
 public class SysUserController {
 
-    @Autowired
-    private SysUserService sysUserService;
+    private final SysUserService sysUserService;
+    private final JwtUtil jwtUtil;
+
+    public SysUserController(SysUserService sysUserService, JwtUtil jwtUtil) {
+        this.sysUserService = sysUserService;
+        this.jwtUtil = jwtUtil;
+    }
 
     /**
      * 登录接口：/api/user/login
@@ -36,7 +40,7 @@ public class SysUserController {
             // 登录成功
 
             // 1. 生成 JWT Token
-            String token = JwtUtil.generateToken(user.getId(), user.getUsername());
+            String token = jwtUtil.generateToken(user.getId(), user.getUsername());
 
             result.put("code", 200);
             result.put("msg", "登录成功");

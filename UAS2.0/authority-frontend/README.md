@@ -1,5 +1,21 @@
-# Vue 3 + Vite
+# UAS 2.0 Frontend
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Vue 3 administration client for the UAS 2.0 role-based access control platform.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Development
+
+```bash
+cp .env.example .env
+npm install
+npm run dev
+```
+
+`VITE_API_BASE_URL` controls the backend origin and defaults to `http://localhost:8080`.
+
+## Commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Create the optimized production bundle |
+| `npm run preview` | Preview the production bundle locally |
